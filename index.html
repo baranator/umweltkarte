@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<title>Friesoyther Umwelttag 2021: Alle gemeinsam - Jeder für sich</title>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+	<script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+	<link rel="stylesheet" href="style.css">
+
+	<script src='umwelttag.js'></script>
+	
+	<style>
+		
+
+	</style>
+</head>
+
+<body>
+	<div class="d-md-none" id="btnnn">
+		<button style="width:100%;position:absolute;bottom:5px;z-index:1050" id="toggle-info" type="button"
+			class="btn btn-success d-md-none">zur Karte!</button>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+	<div class="container-fluid">
+		<div class="row ">
+
+			<div class="col-md-4 order-md-last d-md-block" id="infobar">
+
+					<h1 id="title"></h1>
+					<h5 id="subtitle"></h5>
+					<span id="description">
+					<p>Aufgrund der Kontaktbeschränkungen der Covid19-Pandemie hat die Stadt Friesoythe den diesjährigen
+						Umwelttag in seiner üblichen Form abgesagt</p>
+					<p>Wir finden, dass sich auch in Corona-Zeiten ein Spaziergang alleine oder zu zweit toll zum
+						Müllsammeln nutzen lässt.</p>
+					<p>Damit wir möglich viele Bereiche von Unrat befreien können, haben wir zur Koordination diese
+						kleine App geschrieben!</p>
+					<p>Tut am 26. - 28. März mit uns der Natur etwas Gutes - im Rahmen der Covid19-Auflagen: Alle Gemeinsam, aber jeder für sich! </p>
+					</span>
+					<ul class="nav nav-tabs" id="infonav">
+						<li class="nav-item">
+							<a class="nav-link active" href="#" id="nav_undsogehts">Und so geht's</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="nav_statistik">Statistik</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="nav_impressum">Impressum</a>
+						</li>
+  
+					</ul>
+					
+					<div id="tab_frame">
+					
+					<div id="statistik" class="container" style="display:none">
+						<div class="row">
+							<div class="card text-center col-6 col-md-12 col-lg-6" >
+								<div class="card-body">
+									<i class="fas fa-broom fa-3x"></i>
+									<h5 class="card-title"><span id="area_cleaned">255 ha</h5>
+									<h6 class="card-subtitle mb-2 text-muted">gesäubert</h6>
+								</div>
+							</div>	
+							<div class="card text-center  col-6 col-md-12 col-lg-6">
+								<div class="card-body">
+									<i class="fas fa-pencil-alt fa-3x"></i>
+									<h5 class="card-title"><span id="area_reserved">260 ha</h5>
+									<h6 class="card-subtitle mb-2 text-muted">vorgemerkt</h6>
+								</div>
+							</div>
+							<div class="card text-center col-6 col-md-12 col-lg-6">
+								<div class="card-body">
+									<i class="fas fa-user-check fa-3x"></i>
+									<h5 class="card-title"><span id="participants">27</h5>
+									<h6 class="card-subtitle mb-2 text-muted">Teilnehmer</h6>
+								</div>
+							</div>
+						
+						
+						</div>
+					
+					</div>
+					<div id="undsogehts">
+					<ul>
+						<li>Zeichnet durch Klicken in die Karte euren (noch freien) Bereich ein und teilt den anderen mit, wo ihr am
+							Umwelttag unterwegs sein werdet. </li>
+						<li>Nach der Eintragung erhaltet ihr eine Email, mit der ihr per Link eure Eintragung bestätigt
+							(Spam-Schutz!)</li>
+						<li>Ab nach draußen und Müll sammeln - Falls der Müll nicht in die eigene Tonne passt, könnt  ihn an den <a href="#"
+								id="bauhoflink">auf der Karte angegebenen Stellen</a> bei der Stadt abgeben!</p>
+					</ul>
+					</div>
+					<div id="impressum" style="display:none">
+					<p>Die Umweltkart ist freie Software gemäß GPLv3, zu finden unter <a href="https://github.com/baranator/umweltkarte">github.com/baranator/umweltkarte</a></p>
+					
+					<h6>Verantwortlich für den Inhalt:</h6>
+					<div id="impprint"></div>
+					
+					</div>
+					
+					</div>
+					<div class="d-md-none" style="height:38px"></div>
+			</div>
+			<div class="col-md-8 order-md-first d-md-block d-none fullheight" id="mapscreen">
+				<div id="map"></div>
+			</div>
+
+
+
+		</div>
+	</div>
+</body>
+
+</html>

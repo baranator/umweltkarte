@@ -1,0 +1,32 @@
+{
+	"name":"Umwelttag 2021",
+	"subtitle":	"Alle gemeinsam - jeder für sich",
+	"description": "<p>Aufgrund der Kontaktbeschränkungen der Covid19-Pandemie hat die Stadt Friesoythe den diesjährigen Umwelttag in seiner üblichen Form abgesagt.</p><p>Wir finden, dass sich auch in Corona-Zeiten ein Spaziergang alleine oder zu zweit toll zum Müllsammeln nutzen lässt. </p><p>Damit wir möglich viele Bereiche von Unrat befreien können, haben wir zur Koordination diese kleine App geschrieben!</p>Tut am 26. - 28. März mit uns der Natur etwas Gutes - im Rahmen der Covid19-Auflagen: Alle Gemeinsam, aber jeder für sich!</p>",
+	"date":		"2021-03-27",
+	"mailfrom": "umwelttag@spd-friesoythe.de",
+	"center": [53.025, 7.86, 14.3],
+	"area_maxsize_qm": 100000,
+	"impressum": "SPD Friesoythe <br> Moorstraße 7 <br> 26169 Friesoythe ",
+	"delivery_points":[
+		{
+		"pos": [52.9771179,7.7720489],
+		"name":"Mühle Gehlenberg (12-16 Uhr)"
+		},
+		{
+		"pos": [53.0372231,7.8398566],
+		"name":"Bauhof der Stadt Friesoythe (12-16 Uhr)"
+		},
+		{
+		"pos": [53.0833106,7.9371135],
+		"name":"Parkplatz Grundschule E'damm (12-16 Uhr)"
+		},
+		{
+		"pos": [53.0385742,7.8804173],
+		"name":"Heinz Lübbers' Anhänger<br>Bushaltestelle Oberschule (16-18 Uhr)"
+		},
+		{
+		"pos": [52.9435602,7.8357652],
+		"name":"Marktplatz Markhausen (12-16 Uhr)"
+		}
+	]
+}
