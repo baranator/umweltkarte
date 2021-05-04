@@ -1,0 +1,61 @@
+#infobar{
+			max-height:100%;
+			overflow:scroll
+		}
+#map {
+			width: 100%;
+			height: 100%
+}
+		
+.leaflet-tooltip>i.greenicon,.leaflet-tooltip>i.yellowicon, .leaflet-tooltip>span{
+			vertical-align:middle
+}
+		
+i.greenicon{
+			color:#28a745;
+}
+		
+i.yellowicon{
+			color:#ffc107;
+}
+
+html,
+body,
+.container-fluid,
+.container-fluid>.row,
+.container-fluid>.row>div.fullheight {
+			height: 100%
+}
+		
+		
+.particTt {
+			border: 1px solid black;
+			padding: 1px 6px
+}
+		
+.particTt.done {
+			border-color:#28a745;
+			background-color:#8df5a5;
+			text-color:fff
+}
+
+.leaflet-tooltip-left.particTt::before {
+			border-left-color: black;
+}
+		
+.leaflet-tooltip-right.particTt::before {
+			border-right-color: black;
+}
+		
+		
+.particTt span.tooltipname.full{
+			max-width:auto;
+			display:block-inline;
+}
+				
+.particTt span.tooltipname.compact{
+			max-width:100px;
+			overflow:hidden;
+			text-overflow: ellipsis;
+			display:inline-block
+}
